@@ -1,5 +1,5 @@
-# Spring Boot Upload CSV Files to store to MySQL database example
-
+# Spring Boot App to Upload Order CSV Files to store to MySQL database example
+# Includes CRUD operations for Order
 
 Steps to Run this application
 
@@ -15,6 +15,8 @@ mvn clean install
 6. Sample Curl Request
    curl --location --request POST 'localhost:8080/api/v1/orders/upload' \
    --form 'file=@/D:folder/orders.csv'
+   
+7. postman collection : order-service.postman_collection.json      
 
 Dependencies Used :
 
