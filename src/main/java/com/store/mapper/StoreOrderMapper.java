@@ -2,12 +2,13 @@ package com.store.mapper;
 
 import com.store.model.StoreOrder;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import static com.store.common.CsvConstants.*;
-
+@Component
 public class StoreOrderMapper {
 
     public static  final String DATE_FORMAT = "dd.MM.yy";

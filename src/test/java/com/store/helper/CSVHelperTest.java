@@ -1,11 +1,13 @@
 package com.store.helper;
 
+import com.store.mapper.StoreOrderMapper;
 import com.store.model.StoreOrder;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.mock.web.MockMultipartFile;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,6 +23,9 @@ public class CSVHelperTest {
 
     @Autowired
     CSVHelper csvHelper;
+
+    @MockBean
+    StoreOrderMapper storeOrderMapper;
 
     @Test
     public void when_file_is_not_csv() throws FileNotFoundException {
@@ -61,4 +66,5 @@ public class CSVHelperTest {
             csvHelper.convert(null);
         });
     }
+
 }

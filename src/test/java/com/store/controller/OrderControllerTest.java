@@ -41,6 +41,7 @@ public class OrderControllerTest extends ControllerTest{
     @BeforeEach
     public void setUp() {
         super.setUp();
+        when(orderService.findOrderById(ID)).thenReturn(getStoreOrder());
     }
     @Test
     public void when_invalid_file_is_uploaded() throws Exception {
@@ -129,6 +130,12 @@ public class OrderControllerTest extends ControllerTest{
                 .param("customerId", CUSTOMER_ID)
                 .content(mapToJson(getStoreOrder())))
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void deleteApplication() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.delete(ORDERS_API_URL+"/"+ID))
+                .andExpect(status().isNoContent());
     }
 
 }
